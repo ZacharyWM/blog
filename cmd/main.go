@@ -5,9 +5,9 @@ import "github.com/gin-gonic/gin"
 func main() {
 	r := gin.Default()
 
-	r.StaticFile("/assets/app.js", "../frontend/build/App.js")
-	r.StaticFile("/assets/output.css", "../frontend/build/style.css")
-	r.StaticFile("/", "../frontend/index.html")
+	r.StaticFile("/assets/app.js", "./frontend/build/App.js")
+	r.StaticFile("/assets/output.css", "./frontend/build/style.css")
+	r.StaticFile("/", "./frontend/index.html")
 
 	// r.GET("/", func(c *gin.Context) {
 	// 	c.File("../frontend/index.html")
