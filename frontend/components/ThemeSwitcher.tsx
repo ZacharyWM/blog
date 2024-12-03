@@ -9,10 +9,19 @@ import {
 } from "@nextui-org/react";
 import React from "react";
 import { customThemes } from "../style/tailwind-custom-themes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+
+export const lightTheme = "fluentTheme";
+export const darkTheme = "darkBlue";
 
 export default function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(theme === darkTheme ? lightTheme : darkTheme);
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -22,28 +31,32 @@ export default function ThemeSwitcher() {
 
   return (
     <div className="flex gap-4">
-      <Dropdown>
-        <DropdownTrigger>
-          <Button variant="bordered">Open Menu</Button>
-        </DropdownTrigger>
-        <DropdownMenu aria-label="Static Actions">
-          {Object.keys(customThemes).map((t) => {
-            return (
-              <DropdownItem
-                key={t}
-                textValue={t}
-                onClick={() => {
-                  console.log(`Setting theme to ${t}`);
-                  setTheme(t);
-                }}
-              >
-                {t}
-              </DropdownItem>
-            );
-          })}
-          {/* <DropdownItem key="new">New file</DropdownItem> */}
-        </DropdownMenu>
-      </Dropdown>
+      <FontAwesomeIcon
+        className="cursor-pointer"
+        icon={theme === darkTheme ? faSun : faMoon}
+        onClick={toggleTheme}
+        size="lg"
+      />
     </div>
   );
 }
+
+/*
+   <Dropdown>
+  <DropdownTrigger>
+    <Button variant="bordered">Open Menu</Button>
+  </DropdownTrigger>
+  <DropdownMenu aria-label="Static Actions">
+    {
+      Object.keys(customThemes).map((theme) => {
+        return <DropdownItem key={theme} textValue={theme} onClick={() => {
+          console.log(`Setting theme to ${theme}`);
+          setTheme(theme);
+        }}>
+        {theme}
+      </DropdownItem>
+      })
+    }
+    </DropdownMenu>
+    </Dropdown>
+*/

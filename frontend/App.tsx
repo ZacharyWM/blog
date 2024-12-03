@@ -5,14 +5,15 @@ import { NextUIProvider } from "@nextui-org/react";
 import Page from "./components/Page";
 import RootLayout from "./Layout";
 import { ThemeProvider } from "next-themes";
+import { lightTheme, darkTheme } from "./components/ThemeSwitcher";
 
 const App = () => {
   return (
     <NextUIProvider>
       <ThemeProvider
         attribute="class"
-        defaultTheme="dark"
-        themes={["dark", "light", "modern"]}
+        defaultTheme="darkBlue"
+        themes={[darkTheme, lightTheme]}
       >
         <RootLayout>
           <Page />
