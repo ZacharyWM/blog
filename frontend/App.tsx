@@ -12,7 +12,7 @@ const App = () => {
     <NextUIProvider>
       <ThemeProvider
         attribute="class"
-        defaultTheme="darkBlue"
+        defaultTheme={darkTheme}
         themes={[darkTheme, lightTheme]}
       >
         <RootLayout>

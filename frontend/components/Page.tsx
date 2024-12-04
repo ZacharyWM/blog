@@ -4,9 +4,9 @@ import React from "react";
 export default function Page() {
   return (
     <section className="py-36">
-      <div className="container flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center">
         {Array.from({ length: 10 }).map((_, index) => (
-          <Card key={index} className="py-4 lg:w-3/4 xl:w-1/2 mt-4 mb-4">
+          <Card key={index} className="py-4 w-3/4 xl:w-1/2 mt-4 mb-4">
             <CardBody className="overflow-visible py-2">
               <div className="flex gap-6">
                 <div className="flex-1">

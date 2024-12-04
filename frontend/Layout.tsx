@@ -9,12 +9,12 @@ export default function RootLayout({
 }) {
   return (
     <div>
-      <div className="py-6">
-        <nav className="container flex items-center justify-between">
+      <div className="py-6 flex justify-center">
+        <nav className="flex items-center justify-between w-3/4 xl:w-1/2">
           <ul>
-            <li>{/* <Link href='/'>Home</Link> */}</li>
+            <li>{<Button href="/">Home</Button>}</li>
           </ul>
-          {<ThemeSwitcher />}
+          <div>{<ThemeSwitcher />}</div>
         </nav>
       </div>
       <main>{children}</main>
