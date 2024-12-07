@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "prettier --write .",
-    "dev": "node esbuild.js",
+    "dev": "node esbuild.js --watch",
+    "build": "node esbuild.js",
     "tw-build": "npx tailwindcss -i ./frontend/style/style.css -o ./frontend/build/style.css",
     "tw-build-w": "npx tailwindcss -i ./frontend/style/style.css -o ./frontend/build/style.css --watch"
   },

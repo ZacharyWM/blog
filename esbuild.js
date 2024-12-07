@@ -3,17 +3,21 @@ const esbuild = require("esbuild");
 const entryPoints = ["frontend/App.tsx"];
 const outdir = "frontend/build";
 
-async function buildAndServe() {
-  try {
-    await esbuild.build({
-      entryPoints: entryPoints,
-      outdir: outdir,
-      bundle: true,
-      minify: true,
-      plugins: [],
-    });
-    console.log("⚡ Build complete! ⚡");
+const args = process.argv.slice(2); // Get arguments passed to the script
+const watch = args.indexOf('--watch') !== -1;
 
+async function build(){
+  await esbuild.build({
+    entryPoints: entryPoints,
+    outdir: outdir,
+    bundle: true,
+    minify: true,
+    plugins: [],
+  });
+  console.log("⚡ Build complete! ⚡");
+}
+async function serve() {
+  try {
     let ctx = await esbuild.context({
       entryPoints: entryPoints,
       bundle: true,
@@ -33,4 +37,7 @@ async function buildAndServe() {
   }
 }
 
-buildAndServe();
+build();
+if (watch){
+  serve();
+}
