@@ -26,8 +26,9 @@ go.work.sum
 
 node_modules/
 
+# air live reload build folder
 tmp/
 
+# build folders
 frontend/build
-
 build
