@@ -1,5 +1,5 @@
 mkdir -p build/frontend/build
-go build -o ./build/app ./cmd/main.go
+GOOS=linux GOARCH=amd64 go build -o ./build/app ./cmd/main.go
 npm run build
 npm run tw-build
 
