@@ -17,11 +17,11 @@ func main() {
 	dir = strings.TrimSuffix(dir, "tmp")
 
 	r := gin.Default()
+	// TODO add CORS middleware
 
 	r.StaticFile("/assets/app.js", path.Join(dir, "frontend/build/App.js"))
 	r.StaticFile("/assets/output.css", path.Join(dir, "frontend/build/style.css"))
-	// TODO add favicon
-	// r.StaticFile("/", path.Join(dir, "frontend/index.html"))
+	r.StaticFile("/favicon.ico", path.Join(dir, "frontend/build/favicon.svg"))
 
 	r.GET("/healthcheck", func(c *gin.Context) {
 		c.String(200, "OK")
