@@ -20,10 +20,15 @@ func main() {
 
 	r.StaticFile("/assets/app.js", path.Join(dir, "frontend/build/App.js"))
 	r.StaticFile("/assets/output.css", path.Join(dir, "frontend/build/style.css"))
-	r.StaticFile("/", path.Join(dir, "frontend/index.html"))
+	// TODO add favicon
+	// r.StaticFile("/", path.Join(dir, "frontend/index.html"))
 
 	r.GET("/healthcheck", func(c *gin.Context) {
 		c.String(200, "OK")
+	})
+
+	r.NoRoute(func(c *gin.Context) {
+		c.File(path.Join(dir, "frontend/index.html"))
 	})
 
 	r.Run() // listen and serve on 0.0.0.0:8080
