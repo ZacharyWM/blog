@@ -1,7 +1,8 @@
 import { Button, Card, CardBody } from "@nextui-org/react";
 import React from "react";
+import { Link } from "react-router-dom";
 
-export default function Page() {
+export default function Home() {
   return (
     <section className="py-36">
       <div className="flex flex-col items-center justify-center">
@@ -10,8 +11,11 @@ export default function Page() {
             <CardBody className="overflow-visible py-2">
               <div className="flex gap-6">
                 <div className="flex-1">
+                  <Link to="/article">
+                    <h2>Go to Sample Article</h2>
+                  </Link>
                   <h2 className="text-lg font-bold uppercase">
-                    Article Subject {index + 1}
+                    Article Subjects - {index + 1}
                   </h2>
                   <p className="text-sm text-default-500">
                     This is about some super neat stuff.

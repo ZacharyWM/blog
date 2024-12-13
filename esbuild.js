@@ -4,9 +4,9 @@ const entryPoints = ["frontend/App.tsx"];
 const outdir = "frontend/build";
 
 const args = process.argv.slice(2); // Get arguments passed to the script
-const watch = args.indexOf('--watch') !== -1;
+const watch = args.indexOf("--watch") !== -1;
 
-async function build(){
+async function build() {
   await esbuild.build({
     entryPoints: entryPoints,
     outdir: outdir,
@@ -38,6 +38,6 @@ async function serve() {
 }
 
 build();
-if (watch){
+if (watch) {
   serve();
 }

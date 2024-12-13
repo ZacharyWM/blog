@@ -2,10 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Button } from "@nextui-org/react";
 import { NextUIProvider } from "@nextui-org/react";
-import Page from "./components/Page";
+import Home from "./components/Home";
+import SampleArticle from "./components/articles/SampleArticle";
 import RootLayout from "./Layout";
 import { ThemeProvider } from "next-themes";
 import { lightTheme, darkTheme } from "./components/ThemeSwitcher";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
@@ -15,9 +17,14 @@ const App = () => {
         defaultTheme={darkTheme}
         themes={[darkTheme, lightTheme]}
       >
-        <RootLayout>
-          <Page />
-        </RootLayout>
+        <BrowserRouter>
+          <RootLayout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/article" element={<SampleArticle />} />
+            </Routes>
+          </RootLayout>
+        </BrowserRouter>
       </ThemeProvider>
     </NextUIProvider>
   );
